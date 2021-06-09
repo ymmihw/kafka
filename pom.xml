@@ -59,5 +59,6 @@
         </plugins>
     </build>
     <modules>
+        <module>kafka-streams-vs-consumer</module>
     </modules>
 </project>
