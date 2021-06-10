@@ -65,5 +65,6 @@
     <modules>
         <module>kafka-streams-vs-consumer</module>
         <module>kafka-mock-producer</module>
+        <module>kafka-mock-consumer</module>
     </modules>
 </project>
