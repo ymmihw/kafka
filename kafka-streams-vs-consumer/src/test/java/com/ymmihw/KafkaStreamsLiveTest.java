@@ -12,10 +12,11 @@ import org.apache.kafka.streams.state.KeyValueIterator;
 import org.apache.kafka.streams.state.KeyValueStore;
 import org.apache.kafka.streams.state.QueryableStoreTypes;
 import org.apache.kafka.streams.state.ReadOnlyKeyValueStore;
-import org.junit.Before;
-import org.junit.ClassRule;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.testcontainers.containers.KafkaContainer;
+import org.testcontainers.junit.jupiter.Container;
+import org.testcontainers.junit.jupiter.Testcontainers;
 import org.testcontainers.utility.DockerImageName;
 
 import java.time.Duration;
@@ -27,6 +28,7 @@ import static org.apache.kafka.clients.consumer.ConsumerConfig.BOOTSTRAP_SERVERS
 import static org.apache.kafka.clients.producer.ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG;
 import static org.apache.kafka.clients.producer.ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG;
 
+@Testcontainers
 public class KafkaStreamsLiveTest {
   private final String LEFT_TOPIC = "left-stream-topic";
   private final String RIGHT_TOPIC = "right-stream-topic";
@@ -40,11 +42,11 @@ public class KafkaStreamsLiveTest {
   private final String TEXT_EXAMPLE_1 = "test test and test";
   private final String TEXT_EXAMPLE_2 = "test filter filter this sentence";
 
-  @ClassRule
+  @Container
   public static KafkaContainer kafka =
       new KafkaContainer(DockerImageName.parse("confluentinc/cp-kafka:5.4.3"));
 
-  @Before
+  @BeforeEach
   public void setUp() {
     streamsConfiguration.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, kafka.getBootstrapServers());
     streamsConfiguration.put(
