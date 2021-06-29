@@ -13,6 +13,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <testcontainers.version>1.15.3</testcontainers.version>
     </properties>
 
     <dependencies>
@@ -31,7 +32,7 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
-                <version>2.3.11.RELEASE</version>
+                <version>2.5.2</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -66,5 +67,6 @@
         <module>kafka-streams-vs-consumer</module>
         <module>kafka-mock-producer</module>
         <module>kafka-mock-consumer</module>
+        <module>kafka-monitor-consumer-lag</module>
     </modules>
 </project>
