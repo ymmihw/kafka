@@ -1,0 +1,6 @@
+monitor:
+  kafka:
+    bootstrap:
+      config: "PLAINTEXT://localhost:9085"
+    consumer:
+      groupid: "baeldungGrp"
